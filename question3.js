@@ -9,8 +9,29 @@ what it does and why.
 */
 
 const kebabCase = function (str) {
-    // your code here
+    // make all the letters lowercase and split up the string into its individual words
+    let lowerCase = str
+    .toLowerCase()
+    .split(' ')
+
+    // code if the array is empty, return 'This is an empty string!'
+    if (str.length === 0) {
+        return 'This is an empty string!'
+    }
+
+    // for every words to make the first letter uppercase
+    for (let i = 0; i < lowerCase.length; i++) {
+        let splitWord = lowerCase[i].split('')
+        splitWord[0] = splitWord[0].toUpperCase()
+        joinedWord = splitWord.join('')
+        lowerCase[i] = joinedWord
+    }
+
+    // bring the words back together, removing the spaces
+    return lowerCase.join('-')
+   
 }
+
 
 console.log((kebabCase('Coding Is Fun') === 'Coding-Is-Fun') ? "Test 1: Passing" : "Test 1: Failing");
 

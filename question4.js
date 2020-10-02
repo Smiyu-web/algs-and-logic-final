@@ -6,11 +6,32 @@ lowercase letters, and underscores connecting the words.
 return the entire array with the converted strings
 */
 const snakeCaseArr = function (arr) {
-    // your code here. 
+ 
+    let lowerCase = [];
+    for (let i = 0; i < arr.length; i++) {
+        lowerCase.push(arr[i].toLowerCase());  
+    }
+
+    let splitedArr = [];
+    for (let i = 0; i < lowerCase.length; i++) {
+        splitedArr.push(lowerCase[i].split(' '))
+    }
+
+
+    let joinedArr = [];
+    for (let i = 0; i < splitedArr.length; i++) {
+        joinedArr.push(splitedArr[i].join('_'))
+    }
+    return joinedArr;
+
 }
 
-console.log((snakeCaseArr(['Coding Is Fun']) === ['coding_is_fun']) ? "Test 1: Passing" : "Test 1: Failing");
 
-console.log((snakeCaseArr(['Coding Is Fun', 'Dogs ARE cool']) === ['coding_is_fun', 'dogs_are_cool']) ? "Test 2: Passing" : "Test 2: Failing");
+// console.log((snakeCaseArr(['Coding Is Fun']) === ['coding_is_fun']) ? "Test 1: Passing" : "Test 1: Failing");
 
-console.log((snakeCaseArr(['cats are CUTE', 'Dogs ARE cool']) === ['cats_are_cute', 'dogs_are_cool']) ? "Test 3: Passing" : "Test 3: Failing");
+// console.log((snakeCaseArr(['Coding Is Fun', 'Dogs ARE cool']) === ['coding_is_fun', 'dogs_are_cool']) ? "Test 2: Passing" : "Test 2: Failing");
+
+// console.log((snakeCaseArr(['cats are CUTE', 'Dogs ARE cool']) === ['cats_are_cute', 'dogs_are_cool']) ? "Test 3: Passing" : "Test 3: Failing");
+
+console.log(snakeCaseArr(['Coding Is Fun']));  // ['coding_is_fun']
+console.log(snakeCaseArr(['Coding Is Fun', 'Dogs ARE cool'])); // ['coding_is_fun', 'dogs_are_cool'])
